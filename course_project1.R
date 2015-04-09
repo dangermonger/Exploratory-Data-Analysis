@@ -9,3 +9,16 @@ mydata = read.table("household_power_consumption.txt", header=TRUE, sep = ";", n
 
 subdata <- subset(mydata, mydata$Date == "1/2/2007"| mydata$Date == "2/2/2007") ##subset data by first date OR second date
 
+library(graphics) ##plotting functions for the "base" graphing systems, including plot, hist, boxplot and many others.
+library(grDevices) ##contains all the code implementing the various graphics devices, including X11, PDF, PostScript, PNG, etc.
+
+
+################################################Plot 1######################################
+
+png(file="plot1.png", bg="transparent") ##open png file
+
+hist(subdata$Global_active_power, main = "Global Active Power", xlab = "Global Active Power (kilowatts)", col = "red") ##populate png file with histogram, rename title and labels, color red
+
+dev.off() ##close png
+
+################################################Plot 2######################################
